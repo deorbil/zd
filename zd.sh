@@ -1,3 +1,8 @@
+# Ask user to select a directory from stdin
+_zd_picker() {
+  fzf --print-query | tail -1
+}
+
 # Source a plugin
 _zd_plugin() {
   local plugin="$ZD_DIR/plugins/$1.sh"
@@ -23,7 +28,7 @@ zd() {
   # shellcheck disable=SC1090
   dirs=$(source "$rc")
 
-  echo "$dirs" | fzf --print-query | tail -1
+  _zd_picker <<<"$dirs"
 }
 
 _zd_plugins
