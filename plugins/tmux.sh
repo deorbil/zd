@@ -20,4 +20,4 @@ zd_tmux() {
   fi
 }
 
-[[ $ZD_DISABLE_ALIAS = "true" ]] || alias zt=zd_tmux
+[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias zt=zd_tmux

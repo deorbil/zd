@@ -24,12 +24,12 @@ Each time `zd` is run, it will source the `.zdrc.sh` file in home directory, the
   # Define which plugins to enable
   ZD_PLUGINS=(cd)
 
+  # Uncomment the following line to disable default aliases
+  # ZD_PLUGINS_DISABLE_ALIAS="true"
+
   # Override the default rc file location
   # This is where you will define your directories
   # ZD_RC="$HOME/.zdrc.sh"
-
-  # Uncomment the following line to disable default aliases
-  # ZD_DISABLE_ALIAS="true"
 
   source "$ZD_DIR/zd.sh"
   ```
@@ -59,7 +59,7 @@ But when the output is passed to other program is where it shines! That's where 
 
 By default, `zd` comes with a plugin system that allows you to add custom commands to be executed after selecting a directory.
 
-There are also predefined plugins, but most of them are disabled by default, except for `cd`. All predefined plugins have `zd_` prefix, and their respective aliases that can be disabled with `ZD_DISABLE_ALIAS="true"`.
+There are also predefined plugins, but most of them are disabled by default, except for `cd`. All predefined plugins have `zd_` prefix, and their respective aliases that can be disabled with `ZD_PLUGINS_DISABLE_ALIAS="true"`.
 
 - `cd`
 

@@ -8,4 +8,4 @@ zd_cd() {
   cd "$dir"
 }
 
-[[ $ZD_DISABLE_ALIAS = "true" ]] || alias z=zd_cd
+[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias z=zd_cd
