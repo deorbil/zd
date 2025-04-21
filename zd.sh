@@ -1,3 +1,10 @@
+# Get the list of directories
+_zd_dirs() {
+  local rc=${ZD_RC:-$HOME/.zdrc.sh}
+  # shellcheck disable=SC1090
+  [[ -f $rc ]] && source "$rc"
+}
+
 # Ask user to select a directory from stdin
 _zd_picker() {
   fzf --print-query | tail -1
@@ -20,15 +27,7 @@ _zd_plugins() {
 
 # Ask user to select a directory from user defined list
 zd() {
-  local rc=${ZD_RC:-$HOME/.zdrc.sh}
-
-  [[ -f $rc ]] || return
-
-  local dirs
-  # shellcheck disable=SC1090
-  dirs=$(source "$rc")
-
-  _zd_picker <<<"$dirs"
+  _zd_dirs | _zd_picker
 }
 
 _zd_plugins
