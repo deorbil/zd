@@ -2,7 +2,7 @@ zd_tmux() {
   local dir
   dir=$(zd)
 
-  [[ -z $dir ]] && return
+  [[ ! -d $dir ]] && return
 
   local name
   name=$(basename "$dir" | tr . _)

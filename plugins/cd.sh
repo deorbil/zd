@@ -2,7 +2,7 @@ zd_cd() {
   local dir
   dir=$(zd)
 
-  [[ -z $dir ]] && return
+  [[ ! -d $dir ]] && return
 
   # shellcheck disable=SC2164
   cd "$dir"
