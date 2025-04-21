@@ -7,7 +7,7 @@ _zd_dirs() {
 
 # Ask user to select a directory from stdin
 _zd_picker() {
-  fzf --print-query | tail -1
+  eval "${ZD_PICKER:-fzf --print-query}" "${ZD_PICKER_ARGS}" | tail -1
 }
 
 # Source a plugin

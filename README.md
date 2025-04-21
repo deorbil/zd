@@ -21,6 +21,12 @@ Each time `zd` is run, it will source the `.zdrc.sh` file in home directory, the
   ```bash
   export ZD_DIR="$HOME/.zd"
 
+  # Override the default picker
+  # ZD_PICKER="fzf --print-query"
+
+  # Override the picker args
+  # ZD_PICKER_ARGS=""
+
   # Define which plugins to enable
   ZD_PLUGINS=(cd)
 
