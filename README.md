@@ -1,22 +1,30 @@
+<!-- markdownlint-disable MD013 -->
+
 # zd
 
-`zd` is a fuzzy directory selector, that allows you to quickly pick a directory from scriptable user-defined list of directories. It then integrates with other commands such as `cd` through plugins to allow quick navigation.
+zd is a fuzzy directory selector, that allows you to quickly pick a directory from scriptable user-defined list of directories. It then integrates with other commands such as `cd` and `tmux` through plugins to allow quick navigation.
 
 ## How It Works
 
-Each time `zd` is run, it will source the `.zdrc.sh` file in home directory, the rc file will output list of directories to `stdout` to be displayed by `fzf`. When user selects a directory, `fzf` will output the selected directory which will be passed to `zd` and then `zd` plugin.
+Each time zd is run, it will source the `ZD_RC` file, the rc file will output list of directories to stdout to be displayed by `ZD_PICKER`. When user selects a directory, the picker will output the selected directory which will be passed to zd and then zd plugins.
 
 ## Quick Start
 
-- Install [fzf](https://github.com/junegunn/fzf)
+- **Install dependencies**
 
-- Clone this repository to `~/.zd`
+  By default zd uses [`fzf`][fzf] as its picker. It can be installed from [here][fzf-install].
+
+- **Install zd**
+
+  Clone this repository to `ZD_DIR` directory.
 
   ```bash
   git clone https://github.com/deorbil/zd.git ~/.zd
   ```
 
-- Copy the following code to your `.bashrc` file
+- **Setup zd on your shell**
+
+  Copy the following code to your shell rc file, such as `~/.bashrc`
 
   ```bash
   export ZD_DIR="$HOME/.zd"
@@ -40,7 +48,9 @@ Each time `zd` is run, it will source the `.zdrc.sh` file in home directory, the
   source "$ZD_DIR/zd.sh"
   ```
 
-- Create `.zdrc.sh` file in your home directory and put all directories you want to display in `zd` with `echo` or any other command that output directories such as `find` and `fd`
+- **Setup zd directories**
+
+  Create `ZD_RC` file which is `~/.zdrc.sh` by default and put all directories you want to display in zd. You can use combination of `echo`, `find` or `fd` and any other program that outputs directories.
 
   Here is a simple example of that:
 
@@ -53,7 +63,7 @@ Each time `zd` is run, it will source the `.zdrc.sh` file in home directory, the
 
 ## Usage
 
-On its own `zd` does almost nothing, it prompts user to select a directory and then output it to `stdout`.
+On its own zd does almost nothing, it prompts user to select a directory and then output it to stdout.
 
 ```bash
 zd
@@ -63,7 +73,7 @@ But when the output is passed to other program is where it shines! That's where 
 
 ### Plugins
 
-By default, `zd` comes with a plugin system that allows you to add custom commands to be executed after selecting a directory.
+By default, zd comes with a plugin system that allows you to add custom commands to be executed after selecting a directory.
 
 There are also predefined plugins, but most of them are disabled by default, except for `cd`. All predefined plugins have `zd_` prefix, and their respective aliases that can be disabled with `ZD_PLUGINS_DISABLE_ALIAS="true"`.
 
@@ -89,6 +99,37 @@ There are also predefined plugins, but most of them are disabled by default, exc
 
 - More will be added in the future.
 
+## Configuration
+
+- `ZD_DIR` (required)
+
+  This is the directory where zd is installed.
+
+- `ZD_PICKER`
+
+  Set the command to be used as picker. By default it is set to `fzf`.
+
+- `ZD_PICKER_ARGS`
+
+  Add additional arguments to the picker command. This only works if `ZD_PICKER` is not set!
+
+- `ZD_PLUGINS`
+
+  An array of plugins to be enabled.
+
+- `ZD_PLUGINS_DISABLE_ALIAS`
+
+  Set to `true` to disable default aliases provided for plugins.
+
+- `ZD_RC`
+
+  The rc file location which will contains the directories to be displayed by the picker. By default it is set to `~/.zsrc.sh`
+
 ## Credits
 
-`zd` is inspired from [zoxide](https://github.com/ajeetdsouza/zoxide) and [tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer).
+zd is inspired from [zoxide] and [tmux-sessionizer].
+
+[fzf]: https://github.com/junegunn/fzf
+[fzf-install]: https://github.com/junegunn/fzf#installation
+[tmux-sessionizer]: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+[zoxide]: https://github.com/ajeetdsouza/zoxide
