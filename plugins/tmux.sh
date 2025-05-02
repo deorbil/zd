@@ -1,4 +1,4 @@
-zd_tmux() {
+_zd_plugins_tmux() {
   local dir
   dir=$(_zd_pick)
 
@@ -20,4 +20,4 @@ zd_tmux() {
   fi
 }
 
-[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias zt=zd_tmux
+[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias zt=_zd_plugins_tmux

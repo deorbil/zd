@@ -75,15 +75,13 @@ But when the output is passed to other program is where it shines! That's where 
 
 By default, zd comes with a plugin system that allows you to add custom commands to be executed after selecting a directory.
 
-There are also predefined plugins, but most of them are disabled by default, except for `cd`. All predefined plugins have `zd_` prefix, and their respective aliases that can be disabled with `ZD_PLUGINS_DISABLE_ALIAS="true"`.
+There are also predefined plugins, but most of them are disabled by default, except for `cd`. All predefined plugins have `_zd_plugins_` prefix, and their respective aliases that can be disabled with `ZD_PLUGINS_DISABLE_ALIAS="true"`.
 
 - `cd`
 
   Change current working directory to the selected directory.
 
   ```bash
-  zd_cd
-  # or alias
   z
   ```
 
@@ -92,8 +90,6 @@ There are also predefined plugins, but most of them are disabled by default, exc
   It tries to create a new tmux session with the selected directory if it doesn't exist. Then it attaches to the associated session.
 
   ```bash
-  zd_tmux
-  # or alias
   zt
   ```
 

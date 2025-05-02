@@ -1,4 +1,4 @@
-zd_cd() {
+_zd_plugins_cd() {
   local dir
   dir=$(_zd_pick)
 
@@ -8,4 +8,4 @@ zd_cd() {
   cd "$dir"
 }
 
-[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias z=zd_cd
+[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias z=_zd_plugins_cd
