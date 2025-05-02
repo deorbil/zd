@@ -12,6 +12,7 @@ _zd_picker() {
 
 # Source a plugin
 _zd_plugin() {
+  [[ -z $1 ]] && return
   local plugin="$ZD_DIR/plugins/$1.sh"
   # shellcheck disable=SC1090
   [[ -f $plugin ]] && source "$plugin"
