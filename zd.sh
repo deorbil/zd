@@ -5,6 +5,11 @@ _zd_dirs() {
   [[ -f $rc ]] && source "$rc"
 }
 
+# Ask user to select a directory from user defined list
+_zd_pick() {
+  _zd_dirs | _zd_picker
+}
+
 # Ask user to select a directory from stdin
 _zd_picker() {
   eval "${ZD_PICKER:-fzf --print-query}" "${ZD_PICKER_ARGS}" | tail -1
@@ -26,9 +31,6 @@ _zd_plugins() {
   done
 }
 
-# Ask user to select a directory from user defined list
-zd() {
-  _zd_dirs | _zd_picker
-}
+[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias zd=_zd_pick
 
 _zd_plugins

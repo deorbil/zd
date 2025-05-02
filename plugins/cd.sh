@@ -1,6 +1,6 @@
 zd_cd() {
   local dir
-  dir=$(zd)
+  dir=$(_zd_pick)
 
   [[ ! -d $dir ]] && return
 

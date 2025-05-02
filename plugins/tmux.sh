@@ -1,6 +1,6 @@
 zd_tmux() {
   local dir
-  dir=$(zd)
+  dir=$(_zd_pick)
 
   [[ ! -d $dir ]] && return
 
