@@ -4,6 +4,8 @@
 
 zd is a fuzzy directory selector, that allows you to quickly pick a directory from scriptable user-defined list of directories. It then integrates with other commands such as `cd` and `tmux` through plugins to allow quick navigation.
 
+![2025-05-20 13-49-10](https://github.com/user-attachments/assets/348673b4-ac29-4fc9-8d46-b223f205c4f8)
+
 ## How It Works
 
 Each time zd is run, it will source the `ZD_RC` file, the rc file will output list of directories to stdout to be displayed by `ZD_PICKER`. When user selects a directory, the picker will output the selected directory which will be passed to zd and then zd plugins.
