@@ -26,7 +26,13 @@ Each time zd is run, it will source the `ZD_RC` file, the rc file will output li
 
 - **Setup zd on your shell**
 
-  Copy the following code to your shell rc file, such as `~/.bashrc`
+  Copy one of the following code to your shell rc file, such as `~/.bashrc`
+
+  ```bash
+  export ZD_DIR="$HOME/.zd"
+  ZD_PLUGINS=(cd)
+  source "$ZD_DIR/zd.sh"
+  ```
 
   ```bash
   export ZD_DIR="$HOME/.zd"
