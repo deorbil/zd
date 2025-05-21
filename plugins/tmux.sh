@@ -8,15 +8,15 @@ _zd_plugins_tmux() {
   name=$(basename "$dir" | tr . _)
 
   # Create session if it doesn't exist
-  if ! tmux has-session -t "$name" 2>/dev/null; then
+  if ! tmux has-session -t="$name" 2>/dev/null; then
     tmux new-session -s "$name" -c "$dir" -d
   fi
 
   # Attach or switch to session if already in tmux to prevent nesting
   if [[ -n $TMUX ]]; then
-    tmux switch-client -t "$name"
+    tmux switch-client -t="$name"
   else
-    tmux attach-session -t "$name"
+    tmux attach-session -t="$name"
   fi
 }
 
