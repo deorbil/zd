@@ -31,6 +31,6 @@ _zd_plugins() {
   done
 }
 
-[[ $ZD_PLUGINS_DISABLE_ALIAS = "true" ]] || alias zd=_zd_pick
+alias zd=_zd_pick
 
 _zd_plugins
