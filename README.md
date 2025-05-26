@@ -14,7 +14,7 @@ Each time zd is run, it will source the `ZD_RC` file, the rc file will output li
 
 - **Install dependencies**
 
-  By default zd uses [`fzf`][fzf] as its picker. It can be installed from [here][fzf-install].
+  By default zd uses [`fzf`][fzf] as its picker.
 
 - **Install zd**
 
@@ -26,7 +26,7 @@ Each time zd is run, it will source the `ZD_RC` file, the rc file will output li
 
 - **Setup zd on your shell**
 
-  Copy one of the following code to your shell rc file, such as `~/.bashrc`
+  Copy one of the following code to your shell rc file, such as `~/.bashrc`.
 
   ```bash
   export ZD_DIR="$HOME/.zd"
@@ -66,7 +66,7 @@ Each time zd is run, it will source the `ZD_RC` file, the rc file will output li
   echo "$HOME"
   echo "$HOME/.dotfiles"
   # add all my projects
-  fd --max-depth 1 --type dir . "$HOME/source/repos"
+  find "$HOME/source/repos" -maxdepth 1 -type d
   ```
 
 ## Usage
@@ -101,8 +101,6 @@ There are also predefined plugins, but most of them are disabled by default, exc
   zt
   ```
 
-- More will be added in the future.
-
 ## Configuration
 
 - `ZD_DIR` (required)
@@ -127,13 +125,12 @@ There are also predefined plugins, but most of them are disabled by default, exc
 
 - `ZD_RC`
 
-  The rc file location which will contains the directories to be displayed by the picker. By default it is set to `~/.zsrc.sh`
+  The rc file location which will contains the directories to be displayed by the picker. By default it is set to `~/.zsrc.sh`.
 
 ## Credits
 
 zd is inspired from [zoxide] and [tmux-sessionizer].
 
 [fzf]: https://github.com/junegunn/fzf
-[fzf-install]: https://github.com/junegunn/fzf#installation
 [tmux-sessionizer]: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 [zoxide]: https://github.com/ajeetdsouza/zoxide
