@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 __zd() {
+  [[ -n "$1" ]] && echo "$1" && return
+
   local rc="${ZD_RC:-$HOME/.zdrc}"
   # shellcheck disable=SC1090
   [[ -f "$rc" ]] && source "$rc" | eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
