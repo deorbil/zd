@@ -4,6 +4,9 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "zd",
   description: "Extendable fuzzy directory selector.",
+
+  base: "/zd/",
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     footer: {
