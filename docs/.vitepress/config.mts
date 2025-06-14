@@ -27,6 +27,14 @@ export default defineConfig({
           { text: "Getting Started", link: "/guide/getting-started" },
         ],
       },
+      {
+        text: "Plugins",
+        collapsed: true,
+        items: [
+          { text: "cd", link: "https://github.com/deorbil/zd-cd" },
+          { text: "tmux", link: "https://github.com/deorbil/zd-tmux" },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/deorbil/zd" }],
