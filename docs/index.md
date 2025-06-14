@@ -7,6 +7,9 @@ hero:
   text: "Extendable Fuzzy Directory Selector"
   actions:
     - theme: brand
+      text: Get Started
+      link: /guide/installation
+    - theme: alt
       text: Source Code
       link: https://github.com/deorbil/zd
 ---
