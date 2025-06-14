@@ -15,7 +15,7 @@ export default defineConfig({
     },
 
     nav: [
-      { text: "Guide", link: "/guide/installation", activeMatch: "/guide/" },
+      { text: "Guide", link: "/guide/getting-started", activeMatch: "/guide/" },
     ],
 
     sidebar: [
@@ -23,8 +23,8 @@ export default defineConfig({
         text: "Guide",
         collapsed: false,
         items: [
-          { text: "Installation", link: "/guide/installation" },
           { text: "Getting Started", link: "/guide/getting-started" },
+          { text: "Usage", link: "/guide/usage" },
         ],
       },
       {
