@@ -4,7 +4,7 @@ outline: deep
 
 <!-- markdownlint-disable MD013 -->
 
-# Usage
+# Commands
 
 ## Init
 
