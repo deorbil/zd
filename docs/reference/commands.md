@@ -6,7 +6,7 @@ outline: deep
 
 # Commands
 
-## Init
+## `init`
 
 ```sh
 zd init <SHELL>
@@ -20,9 +20,9 @@ This command should be added to your shell configuration file (such as `~/.bashr
 
 :::
 
-## Plugin
+## `plugin`
 
-### Add
+### `add`
 
 ```sh
 zd plugin add <NAME> <REPOSITORY>
@@ -30,7 +30,7 @@ zd plugin add <NAME> <REPOSITORY>
 
 Install a plugin.
 
-### List
+### `list`
 
 ```sh
 zd plugin list
@@ -38,7 +38,7 @@ zd plugin list
 
 List all installed plugins.
 
-### Remove
+### `remove`
 
 ```sh
 zd plugin remove <NAME>
