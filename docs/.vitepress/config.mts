@@ -32,7 +32,10 @@ export default defineConfig({
       {
         text: "Reference",
         collapsed: false,
-        items: [{ text: "Commands", link: "/reference/commands" }],
+        items: [
+          { text: "Commands", link: "/reference/commands" },
+          { text: "Configuration", link: "/reference/configuration" },
+        ],
       },
       {
         text: "Plugins",
