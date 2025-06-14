@@ -14,6 +14,18 @@ export default defineConfig({
       copyright: "Copyright © 2025 deorbil",
     },
 
+    nav: [
+      { text: "Guide", link: "/guide/installation", activeMatch: "/guide/" },
+    ],
+
+    sidebar: [
+      {
+        text: "Guide",
+        collapsed: false,
+        items: [{ text: "Installation", link: "/guide/installation" }],
+      },
+    ],
+
     socialLinks: [{ icon: "github", link: "https://github.com/deorbil/zd" }],
   },
 });
