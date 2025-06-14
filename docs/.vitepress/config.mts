@@ -16,15 +16,25 @@ export default defineConfig({
 
     nav: [
       { text: "Guide", link: "/guide/getting-started", activeMatch: "/guide/" },
+      {
+        text: "Reference",
+        link: "/reference/commands",
+        activeMatch: "/reference/",
+      },
     ],
 
     sidebar: [
       {
         text: "Guide",
         collapsed: false,
+        items: [{ text: "Getting Started", link: "/guide/getting-started" }],
+      },
+      {
+        text: "Reference",
+        collapsed: false,
         items: [
-          { text: "Getting Started", link: "/guide/getting-started" },
-          { text: "Usage", link: "/guide/usage" },
+          { text: "Commands", link: "/reference/commands" },
+          { text: "Configuration", link: "/reference/configuration" },
         ],
       },
       {

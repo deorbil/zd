@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD013 MD036 -->
 
 # Getting Started
 
@@ -6,7 +6,7 @@
 
 ::: details Building from Source {open}
 
-### Prerequisites
+**Prerequisites**
 
 Install the following tools:
 
@@ -17,7 +17,7 @@ Install the following dependencies:
 
 - [fzf](https://junegunn.github.io/fzf/)
 
-### Building
+**Building**
 
 This will clone the repository, build the project, and create an executable in the `target/release` directory.
 
