@@ -38,7 +38,7 @@ cp target/release/zd ~/.local/bin/
 
 :::
 
-## Configure zd
+## Configuring
 
 ::: details Bash {open}
 
@@ -65,7 +65,7 @@ find "$HOME/source" -maxdepth 1 -type d
 
 :::
 
-## Install a Plugin
+## Installing a Plugin
 
 Install the `zd-cd` plugin to start using `zd`.
 
