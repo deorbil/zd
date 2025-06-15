@@ -87,7 +87,9 @@ You can add more directories using `echo` or any other command that outputs dire
 ::: code-group
 
 ```bash [.zdrc]
-find "$HOME/source" -maxdepth 1 -type d
+#!/usr/bin/env bash
+echo "$HOME"
+find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 ```
 
 :::
