@@ -108,6 +108,28 @@ find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 
 Alternatively, replace `~/.zdrc` with an executable. This can be either a binary or a shebang script.
 
+:::: details Node.js
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```js [.zdrc]
+#!/usr/bin/env node
+const os = require("os");
+console.log(os.homedir());
+```
+
+Make `~/.zdrc` executable:
+
+:::
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
 :::: details Python
 
 Add the following to your `~/.zdrc`:
