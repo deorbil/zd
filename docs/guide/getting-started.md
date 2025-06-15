@@ -4,7 +4,7 @@
 
 ## Installation
 
-::: details Arch Linux
+:::: details Arch Linux
 
 ::: code-group
 
@@ -17,7 +17,9 @@ paru -Bi .
 
 :::
 
-::: details Building from Source {open}
+::::
+
+:::: details Building from Source {open}
 
 **Prerequisites**
 
@@ -51,9 +53,11 @@ cp target/release/zd ~/.local/bin/
 
 :::
 
+::::
+
 ## Configuring
 
-::: details Bash {open}
+:::: details Bash {open}
 
 Add the following to your `~/.bashrc`:
 
@@ -77,6 +81,8 @@ find "$HOME/source" -maxdepth 1 -type d
 ```
 
 :::
+
+::::
 
 ## Installing a Plugin
 
