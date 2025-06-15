@@ -14,9 +14,9 @@ zd init <SHELL>
 
 Print shell script.
 
-::: tip
+::: warning
 
-This command should be added to your shell configuration file (such as `~/.bashrc`), see [Configuring](/guide/getting-started#configuring) for more details.
+This command should be added to your shell configuration file (such as `~/.bashrc`), see [Getting Started](/guide/getting-started#configuring) for more details.
 
 :::
 

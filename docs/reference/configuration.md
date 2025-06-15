@@ -30,8 +30,8 @@ The path to the zd configuration file. This file is a shell script and is source
 
 Defaults to `$HOME/.zdrc`.
 
-::: tip
+::: info
 
-See [Configuring](/guide/getting-started#configuring) for more details.
+See [Getting Started](/guide/getting-started#configuring) for more details.
 
 :::
