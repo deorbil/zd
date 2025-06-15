@@ -16,7 +16,7 @@ Print shell script.
 
 ::: warning
 
-This command should be added to your shell configuration file (such as `~/.bashrc`), see [Getting Started](/guide/getting-started#configuring) for more details.
+This command should be added to your shell configuration file (such as `~/.bashrc`), see [Getting Started](/guide/getting-started#setup) for more details.
 
 :::
 

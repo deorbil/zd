@@ -32,6 +32,6 @@ Defaults to `$HOME/.zdrc`.
 
 ::: info
 
-See [Getting Started](/guide/getting-started#configuring) for more details.
+See [Getting Started](/guide/getting-started#adding-directories) for more details.
 
 :::
