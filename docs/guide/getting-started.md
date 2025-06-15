@@ -108,6 +108,27 @@ find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 
 Alternatively, replace `~/.zdrc` with an executable. This can be either a binary or a shebang script.
 
+:::: details Lua
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```lua [.zdrc]
+#!/usr/bin/env lua
+print(os.getenv("HOME"))
+```
+
+:::
+
+Make `~/.zdrc` executable:
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
 :::: details Node.js
 
 Add the following to your `~/.zdrc`:
