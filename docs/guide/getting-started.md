@@ -57,32 +57,44 @@ cp target/release/zd ~/.local/bin/
 
 ## Configuring
 
-:::: details Bash {open}
+::::: details Bash {open}
 
 Add the following to your `~/.bashrc`:
 
-```sh
+::: code-group
+
+```bash [.bashrc]
 eval "$(zd init bash)"
 ```
 
+:::
+
 Create a new file `~/.zdrc` with the following content to add your first directory:
 
-```bash
+::: code-group
+
+```bash [.zdrc]
 #!/usr/bin/env bash
 echo "$HOME"
 ```
 
-::: tip
+:::
+
+:::: tip
 
 You can add more directories using `echo` or any other command that outputs directory paths. For example, use `find` to add multiple directories:
 
-```bash
+::: code-group
+
+```bash [.zdrc]
 find "$HOME/source" -maxdepth 1 -type d
 ```
 
 :::
 
 ::::
+
+:::::
 
 ## Installing a Plugin
 
