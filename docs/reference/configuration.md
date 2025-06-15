@@ -26,7 +26,7 @@ The arguments passed to the directory picker program.
 
 ### `ZD_RC`
 
-The path to the zd configuration file. This file is a shell script and is sourced every time zd is run. This should output the user-defined directories separated by new line to be displayed by the directory picker program.
+The path to the zd configuration file. This file can be either a shell script or an executable. This file should output directories separated by new line to be displayed by the directory picker program.
 
 Defaults to `$HOME/.zdrc`.
 
