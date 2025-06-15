@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
+__zd_picker() {
+  eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
+}
+
 __zd() {
   if [[ $# -eq 0 ]]; then
     local rc="${ZD_RC:-$HOME/.zdrc}"
     if [[ -f "$rc" ]]; then
       # shellcheck disable=SC1090
-      source "$rc" | eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
+      source "$rc" | __zd_picker
     else
       echo "$HOME"
     fi
