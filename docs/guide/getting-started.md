@@ -4,7 +4,7 @@
 
 ## Installation
 
-::: details Arch Linux
+:::: details Arch Linux
 
 ::: code-group
 
@@ -17,7 +17,9 @@ paru -Bi .
 
 :::
 
-::: details Building from Source {open}
+::::
+
+:::: details Building from Source {open}
 
 **Prerequisites**
 
@@ -51,36 +53,129 @@ cp target/release/zd ~/.local/bin/
 
 :::
 
-## Configuring
+::::
 
-::: details Bash {open}
+## Setup
+
+:::: details Bash {open}
 
 Add the following to your `~/.bashrc`:
 
-```sh
+::: code-group
+
+```bash [.bashrc]
 eval "$(zd init bash)"
-```
-
-Create a new file `~/.zdrc` with the following content to add your first directory:
-
-```bash
-#!/usr/bin/env bash
-echo "$HOME"
-```
-
-::: tip
-
-You can add more directories using `echo` or any other command that outputs directory paths. For example, use `find` to add multiple directories:
-
-```bash
-find "$HOME/source" -maxdepth 1 -type d
 ```
 
 :::
 
+::::
+
+## Adding Directories
+
+By default, zd will use your default shell as the script interpreter.
+
+::::: details Bash {open}
+
+Create a new file `~/.zdrc` with the following content to add your first directory:
+
+::: code-group
+
+```bash [.zdrc]
+#!/usr/bin/env bash
+echo "$HOME"
+```
+
+:::
+
+:::: tip
+
+You can add more directories using `echo` or any other command that outputs directory paths. For example, use `find` to add multiple directories:
+
+::: code-group
+
+```bash [.zdrc]
+#!/usr/bin/env bash
+echo "$HOME"
+find "$HOME/source" -maxdepth 1 -type d # [!code ++]
+```
+
+:::
+
+::::
+
+:::::
+
+Alternatively, replace `~/.zdrc` with an executable. This can be either a binary or a shebang script.
+
+:::: details Lua
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```lua [.zdrc]
+#!/usr/bin/env lua
+print(os.getenv("HOME"))
+```
+
+:::
+
+Make `~/.zdrc` executable:
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
+:::: details Node.js
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```js [.zdrc]
+#!/usr/bin/env node
+const os = require("os");
+console.log(os.homedir());
+```
+
+Make `~/.zdrc` executable:
+
+:::
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
+:::: details Python
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```py [.zdrc]
+#!/usr/bin/env python3
+import os
+print(os.path.expanduser("~"))
+```
+
+:::
+
+Make `~/.zdrc` executable:
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
 ## Installing a Plugin
 
-Install the `zd-cd` plugin to start using `zd`.
+Install the [zd-cd](https://github.com/deorbil/zd-cd) plugin:
 
 ```sh
 zd plugin add cd https://github.com/deorbil/zd-cd.git
