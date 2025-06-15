@@ -7,7 +7,9 @@ __zd_picker() {
 __zd() {
   if [[ $# -eq 0 ]]; then
     local rc="${ZD_RC:-$HOME/.zdrc}"
-    if [[ -f "$rc" ]]; then
+    if [[ -x "$rc" ]]; then
+      "$rc" | __zd_picker
+    elif [[ -f "$rc" ]]; then
       # shellcheck disable=SC1090
       source "$rc" | __zd_picker
     else
