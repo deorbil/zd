@@ -106,6 +106,30 @@ find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 
 :::::
 
+Alternatively, replace `~/.zdrc` with an executable. This can be either a binary or a shebang script.
+
+:::: details Python
+
+Add the following to your `~/.zdrc`:
+
+::: code-group
+
+```py [.zdrc]
+#!/usr/bin/env python3
+import os
+print(os.path.expanduser("~"))
+```
+
+:::
+
+Make `~/.zdrc` executable:
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
 ## Installing a Plugin
 
 Install the [zd-cd](https://github.com/deorbil/zd-cd) plugin:
