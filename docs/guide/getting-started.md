@@ -55,9 +55,9 @@ cp target/release/zd ~/.local/bin/
 
 ::::
 
-## Configuring
+## Setup
 
-::::: details Bash {open}
+:::: details Bash {open}
 
 Add the following to your `~/.bashrc`:
 
@@ -68,6 +68,14 @@ eval "$(zd init bash)"
 ```
 
 :::
+
+::::
+
+## Adding Directories
+
+By default, zd will use your default shell as the script interpreter.
+
+::::: details Bash {open}
 
 Create a new file `~/.zdrc` with the following content to add your first directory:
 
