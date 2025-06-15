@@ -80,7 +80,7 @@ find "$HOME/source" -maxdepth 1 -type d
 
 ## Installing a Plugin
 
-Install the `zd-cd` plugin to start using `zd`.
+Install the [zd-cd](https://github.com/deorbil/zd-cd) plugin:
 
 ```sh
 zd plugin add cd https://github.com/deorbil/zd-cd.git
