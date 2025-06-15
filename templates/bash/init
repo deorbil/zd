@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
 __zd() {
-  [[ -n "$1" ]] && echo "$1" && return
-
-  local rc="${ZD_RC:-$HOME/.zdrc}"
-  # shellcheck disable=SC1090
-  [[ -f "$rc" ]] && source "$rc" | eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
+  if [[ $# -eq 0 ]]; then
+    local rc="${ZD_RC:-$HOME/.zdrc}"
+    if [[ -f "$rc" ]]; then
+      # shellcheck disable=SC1090
+      source "$rc" | eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
+    else
+      echo "$HOME"
+    fi
+  elif [[ $# -eq 1 ]]; then
+    echo "$1"
+  elif [[ $# -eq 2 && "$1" == "--" ]]; then
+    echo "$2"
+  fi
 }
 
 __zd_plugin_load() {
