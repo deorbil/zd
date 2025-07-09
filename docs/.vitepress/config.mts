@@ -41,8 +41,10 @@ export default defineConfig({
         text: "Plugins",
         collapsed: true,
         items: [
-          { text: "cd", link: "https://github.com/deorbil/zd-cd" },
-          { text: "tmux", link: "https://github.com/deorbil/zd-tmux" },
+          {
+            text: "GitHub Topics Search",
+            link: "https://github.com/topics/zd-plugin",
+          },
         ],
       },
     ],
