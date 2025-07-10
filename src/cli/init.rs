@@ -1,3 +1,4 @@
+use anyhow::Result;
 use askama::Template;
 use clap::{Parser, ValueEnum};
 
@@ -14,10 +15,11 @@ pub struct Init {
 }
 
 impl Init {
-    pub fn run(&self) {
+    pub fn run(&self) -> Result<()> {
         let content = match &self.shell {
-            Shell::Bash => templates::bin::bash::init::Template.render().unwrap(),
+            Shell::Bash => templates::bin::bash::init::Template.render()?,
         };
         println!("{}", content);
+        Ok(())
     }
 }
