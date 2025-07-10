@@ -1,3 +1,4 @@
+use anyhow::Result;
 use clap::Parser;
 
 use crate::env;
@@ -6,16 +7,18 @@ use crate::env;
 pub struct List;
 
 impl List {
-    pub fn run(&self) {
-        let dir = env::get_zd_dir().join("plugins");
+    pub fn run(&self) -> Result<()> {
+        let dir = env::get_zd_dir()?.join("plugins");
 
-        let entries = std::fs::read_dir(&dir).unwrap();
-        for entry in entries {
-            let entry = entry.unwrap();
+        let entries = std::fs::read_dir(&dir)?;
+        for entry in entries.flatten() {
             if entry.path().is_dir() {
-                let name = entry.file_name().into_string().unwrap();
-                println!("{}", name);
+                if let Ok(name) = entry.file_name().into_string() {
+                    println!("{}", name);
+                }
             }
         }
+
+        Ok(())
     }
 }

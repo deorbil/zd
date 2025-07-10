@@ -2,6 +2,7 @@ mod add;
 mod list;
 mod remove;
 
+use anyhow::Result;
 use clap::{Parser, Subcommand};
 
 use add::Add;
@@ -27,7 +28,7 @@ pub struct Plugin {
 }
 
 impl Plugin {
-    pub fn run(&self) {
+    pub fn run(&self) -> Result<()> {
         match &self.command {
             Commands::Add(add) => add.run(),
             Commands::List(list) => list.run(),
