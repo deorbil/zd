@@ -1,7 +1,7 @@
 use askama::Template;
 use clap::{Parser, ValueEnum};
 
-use crate::templates::Bash;
+use crate::templates;
 
 #[derive(ValueEnum, Clone)]
 pub enum Shell {
@@ -16,7 +16,7 @@ pub struct Init {
 impl Init {
     pub fn run(&self) {
         let content = match &self.shell {
-            Shell::Bash => Bash.render().unwrap(),
+            Shell::Bash => templates::bin::bash::init::Template.render().unwrap(),
         };
         println!("{}", content);
     }
