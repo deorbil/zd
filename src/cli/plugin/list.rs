@@ -1,7 +1,7 @@
 use anyhow::Result;
 use clap::Parser;
 
-use crate::env;
+use crate::utils::env;
 
 #[derive(Parser)]
 pub struct List;
