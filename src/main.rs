@@ -1,6 +1,6 @@
 mod cli;
-mod env;
 mod templates;
+mod utils;
 
 use anyhow::Result;
 use clap::Parser;
