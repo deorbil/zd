@@ -12,7 +12,7 @@ pub struct Add {
 
 impl Add {
     pub fn run(&self) -> Result<()> {
-        let dir = env::get_zd_dir()?.join("plugins").join(&self.name);
+        let dir = env::get_plugins_dir()?.join(&self.name);
         std::fs::create_dir_all(&dir)?;
         Repository::clone(&self.repository, &dir)?;
         Ok(())
