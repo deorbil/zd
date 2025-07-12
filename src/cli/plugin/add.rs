@@ -2,7 +2,7 @@ use anyhow::Result;
 use clap::Parser;
 use git2::Repository;
 
-use crate::env;
+use crate::utils::env;
 
 #[derive(Parser)]
 pub struct Add {
