@@ -4,20 +4,15 @@
 
 ## Installation
 
-:::: details Arch Linux
+::: details Arch Linux
 
-::: code-group
-
-```sh [paru]
-mkdir -p ~/.cache/paru/clone/zd-git
-cd ~/.cache/paru/clone/zd-git
-curl -O https://raw.githubusercontent.com/deorbil/aur/master/zd-git/PKGBUILD
-paru -Bi .
+```sh
+git clone https://github.com/deorbil-aur/zd-git.git
+cd zd-git
+makepkg -si
 ```
 
 :::
-
-::::
 
 :::: details Building from Source {open}
 
