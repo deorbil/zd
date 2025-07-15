@@ -62,6 +62,20 @@ eval "$(zd init bash)"
 
 ::::
 
+:::: details Zsh
+
+Add the following to your `~/.zshrc`:
+
+::: code-group
+
+```zsh [.zshrc]
+eval "$(zd init zsh)"
+```
+
+:::
+
+::::
+
 ## Adding Directories
 
 By default, zd will use your default shell as the script interpreter.
@@ -87,6 +101,37 @@ You can add more directories using `echo` or any other command that outputs dire
 
 ```bash [.zdrc]
 #!/usr/bin/env bash
+echo "$HOME"
+find "$HOME/source" -maxdepth 1 -type d # [!code ++]
+```
+
+:::
+
+::::
+
+:::::
+
+::::: details Zsh
+
+Create a new file `~/.zdrc` with the following content to add your first directory:
+
+::: code-group
+
+```zsh [.zsrc]
+#!/usr/bin/env zsh
+echo "$HOME"
+```
+
+:::
+
+:::: tip
+
+You can add more directories using `echo` or any other command that outputs directory paths. For example, use `find` to add multiple directories:
+
+::: code-group
+
+```zsh [.zdrc]
+#!/usr/bin/env zsh
 echo "$HOME"
 find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 ```
