@@ -2,8 +2,6 @@
 outline: deep
 ---
 
-<!-- markdownlint-disable MD013 -->
-
 # Commands
 
 ## `init`

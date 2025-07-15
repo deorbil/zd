@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD013 MD036 -->
-
 # Getting Started
 
 ## Installation
