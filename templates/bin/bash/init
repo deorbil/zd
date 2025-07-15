@@ -10,7 +10,6 @@ __zd() {
     if [[ -x "$rc" ]]; then
       "$rc" | __zd_picker
     elif [[ -f "$rc" ]]; then
-      # shellcheck disable=SC1090
       source "$rc" | __zd_picker
     else
       echo "$HOME"
@@ -26,10 +25,8 @@ __zd_plugin_load() {
   [[ -d "$1" ]] || return
 
   [[ -f "$1/bin/bash/init" ]] || return
-  # shellcheck disable=SC1091
   source "$1/bin/bash/init"
 
-  # shellcheck disable=SC1091
   [[ -f "$1/bin/bash/alias" ]] && source "$1/bin/bash/alias"
 }
 
