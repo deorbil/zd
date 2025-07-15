@@ -103,6 +103,16 @@ find "$HOME/source" -maxdepth 1 -type d # [!code ++]
 
 Alternatively, replace `~/.zdrc` with an executable. This can be either a binary or a shebang script.
 
+:::: details Binary
+
+Move the binary to `~/.zdrc`, then make it executable:
+
+```sh
+chmod +x ~/.zdrc
+```
+
+::::
+
 :::: details Lua
 
 Add the following to your `~/.zdrc`:
