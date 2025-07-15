@@ -23,8 +23,9 @@ __zd() {
 
 __zd_plugin_load() {
   [[ -d "$1" ]] || return
-
+  [[ -d "$1/bin/bash" ]] || return
   [[ -f "$1/bin/bash/init" ]] || return
+
   source "$1/bin/bash/init"
 
   [[ -f "$1/bin/bash/alias" ]] && source "$1/bin/bash/alias"
@@ -32,7 +33,7 @@ __zd_plugin_load() {
 
 __zd_plugin_load_all() {
   mkdir -p "${ZD_DIR:-$HOME/.zd}/plugins"
-  find "${ZD_DIR:-$HOME/.zd}/plugins" -mindepth 1 -maxdepth 1 -type d | while read -r plugin; do
+  for plugin in "${ZD_DIR:-$HOME/.zd}/plugins"/*; do
     __zd_plugin_load "$plugin"
   done
 }
