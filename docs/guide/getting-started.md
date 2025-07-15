@@ -16,8 +16,6 @@ makepkg -si
 
 :::: details Building from Source {open}
 
-**Prerequisites**
-
 Install the following tools:
 
 - [git](https://git-scm.com/)
@@ -26,8 +24,6 @@ Install the following tools:
 Install the following dependencies:
 
 - [fzf](https://junegunn.github.io/fzf/)
-
-**Building**
 
 This will clone the repository, build the project, and create an executable in the `target/release` directory.
 
