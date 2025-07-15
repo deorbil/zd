@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "zd"
   text: "Extendable Fuzzy Directory Selector"
-  tagline: "Quickly navigate between directories you define!"
+  tagline: "Navigate through directories with ease."
   actions:
     - theme: brand
       text: Get Started
@@ -18,10 +18,10 @@ features:
   - icon: 🔌
     title: Plugins
     details: Integrations with various tools.
-  - icon: 🔧
-    title: Customizable
-    details: Define your directories using shell scripting.
   - icon: 📄
-    title: Flexible
-    details: Use built-in shell commands, external commands, or even create your own.
+    title: Scripting
+    details: Configurable directories through Bash, Lua, Node.js, Python, and more.
+  - icon: 🐚
+    title: Shells
+    details: Supports Bash and Zsh.
 ---
