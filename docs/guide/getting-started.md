@@ -14,7 +14,7 @@ makepkg -si
 
 :::
 
-:::: details Building from Source {open}
+:::: details Building from Source
 
 Install the following tools:
 
@@ -48,7 +48,7 @@ cp target/release/zd ~/.local/bin/
 
 ## Setup
 
-:::: details Bash {open}
+:::: details Bash
 
 Add the following to your `~/.bashrc`:
 
@@ -80,7 +80,7 @@ eval "$(zd init zsh)"
 
 By default, zd will use your default shell as the script interpreter.
 
-::::: details Bash {open}
+::::: details Bash
 
 Create a new file `~/.zdrc` with the following content to add your first directory:
 
