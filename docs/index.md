@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "zd"
-  text: "Extendable Fuzzy Directory Selector"
+  text: "Extensible Fuzzy Directory Selector"
   tagline: "Navigate through directories with ease."
   actions:
     - theme: brand
