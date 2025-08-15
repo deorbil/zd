@@ -2,16 +2,6 @@
 
 ## Installation
 
-::: details Arch Linux
-
-```sh
-git clone https://github.com/deorbil-aur/zd-git.git
-cd zd-git
-makepkg -si
-```
-
-:::
-
 :::: details Building from Source
 
 Install the following tools:
