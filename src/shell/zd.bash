@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 __zd_picker() {
   eval "${ZD_PICKER:-fzf}" "${ZD_PICKER_ARGS}"
 }
