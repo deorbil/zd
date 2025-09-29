@@ -20,18 +20,18 @@ __zd() {
 }
 
 __zd_plugin_load() {
-  [[ -d "$1" ]] || return
-  [[ -d "$1/bin/bash" ]] || return
-  [[ -f "$1/bin/bash/init" ]] || return
+  local dir="$1"
+  [[ -d "$dir" ]] || return
 
-  source "$1/bin/bash/init"
-
-  [[ -f "$1/bin/bash/alias" ]] && source "$1/bin/bash/alias"
+  local name="${dir##*/}"
+  [[ -f "$dir/$name.bash" ]] && source "$dir/$name.bash"
 }
 
 __zd_plugin_load_all() {
-  mkdir -p "${ZD_DIR:-$HOME/.zd}/plugins"
-  for plugin in "${ZD_DIR:-$HOME/.zd}/plugins"/*; do
+  local dir="${ZD_DIR:-$HOME/.zd}/plugins"
+  [[ -d "$dir" ]] || return
+
+  for plugin in "$dir"/*; do
     __zd_plugin_load "$plugin"
   done
 }
