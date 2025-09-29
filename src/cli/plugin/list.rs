@@ -11,11 +11,9 @@ impl List {
         let dir = env::get_plugins_dir()?;
 
         let entries = std::fs::read_dir(&dir)?;
-        for entry in entries.flatten() {
-            if entry.path().is_dir() {
-                if let Ok(name) = entry.file_name().into_string() {
-                    println!("{}", name);
-                }
+        for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
+            if let Some(name) = entry.file_name().to_str() {
+                println!("{}", name);
             }
         }
 
