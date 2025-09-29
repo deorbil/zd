@@ -1,14 +1,9 @@
 use anyhow::Result;
 use askama::Template;
-use clap::{Parser, ValueEnum};
+use clap::Parser;
 
+use crate::shell::Shell;
 use crate::templates;
-
-#[derive(ValueEnum, Clone)]
-pub enum Shell {
-    Bash,
-    Zsh,
-}
 
 #[derive(Parser)]
 pub struct Init {
