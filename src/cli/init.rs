@@ -1,9 +1,7 @@
 use anyhow::Result;
-use askama::Template;
 use clap::Parser;
 
 use crate::shell::Shell;
-use crate::templates;
 
 #[derive(Parser)]
 pub struct Init {
@@ -12,11 +10,7 @@ pub struct Init {
 
 impl Init {
     pub fn run(&self) -> Result<()> {
-        let content = match &self.shell {
-            Shell::Bash => templates::bin::bash::init::Template.render()?,
-            Shell::Zsh => templates::bin::zsh::init::Template.render()?,
-        };
-        println!("{}", content);
+        println!("{}", self.shell.render());
         Ok(())
     }
 }
