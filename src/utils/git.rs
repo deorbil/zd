@@ -20,6 +20,12 @@ mod tests {
     use super::*;
 
     #[test]
+    fn get_name_from_github_slug() {
+        let name = get_name_from_url("deorbil/zd-cd");
+        assert_eq!(name, "zd-cd");
+    }
+
+    #[test]
     fn get_name_from_https() {
         let name = get_name_from_url("https://github.com/deorbil/zd-cd.git");
         assert_eq!(name, "zd-cd");
@@ -47,5 +53,23 @@ mod tests {
     fn get_name_from_ssh_without_suffix() {
         let name = get_name_from_url("git@github.com:deorbil/zd-cd");
         assert_eq!(name, "zd-cd");
+    }
+
+    #[test]
+    fn normalize_github_slug() {
+        let normalized_url = normalize_url("deorbil/zd-cd");
+        assert_eq!(normalized_url, "https://github.com/deorbil/zd-cd.git");
+    }
+
+    #[test]
+    fn normalize_https() {
+        let normalized_url = normalize_url("https://github.com/deorbil/zd-cd.git");
+        assert_eq!(normalized_url, "https://github.com/deorbil/zd-cd.git");
+    }
+
+    #[test]
+    fn normalize_ssh() {
+        let normalized_url = normalize_url("git@github.com:deorbil/zd-cd.git");
+        assert_eq!(normalized_url, "git@github.com:deorbil/zd-cd.git");
     }
 }
