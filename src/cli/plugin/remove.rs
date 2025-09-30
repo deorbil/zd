@@ -1,7 +1,7 @@
 use anyhow::Result;
 use clap::Parser;
 
-use crate::utils::env;
+use crate::utils;
 
 #[derive(Parser)]
 pub struct Remove {
@@ -10,7 +10,7 @@ pub struct Remove {
 
 impl Remove {
     pub fn run(&self) -> Result<()> {
-        let dir = env::get_plugins_dir()?.join(&self.name);
+        let dir = utils::env::get_plugins_dir()?.join(&self.name);
         std::fs::remove_dir_all(&dir)?;
         Ok(())
     }

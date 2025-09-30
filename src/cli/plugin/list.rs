@@ -1,14 +1,14 @@
 use anyhow::Result;
 use clap::Parser;
 
-use crate::utils::env;
+use crate::utils;
 
 #[derive(Parser)]
 pub struct List;
 
 impl List {
     pub fn run(&self) -> Result<()> {
-        let dir = env::get_plugins_dir()?;
+        let dir = utils::env::get_plugins_dir()?;
 
         let entries = std::fs::read_dir(&dir)?;
         for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
