@@ -7,6 +7,14 @@ pub fn get_name_from_url(url: &str) -> String {
         .to_string()
 }
 
+pub fn normalize_url(url: &str) -> String {
+    if url.contains(':') {
+        url.to_string()
+    } else {
+        format!("https://github.com/{}.git", url)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
