@@ -12,7 +12,7 @@ pub struct Add {
 impl Add {
     pub fn run(&self) -> Result<()> {
         let name = utils::git::get_name_from_url(&self.url);
-        let dir = utils::env::get_plugins_dir()?.join(name);
+        let dir = utils::env::get_plugin_dir(&name)?;
         std::fs::create_dir_all(&dir)?;
         Repository::clone(&self.url, &dir)?;
         Ok(())
