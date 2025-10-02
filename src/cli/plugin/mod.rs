@@ -1,24 +1,25 @@
-mod add;
+mod install;
 mod list;
-mod remove;
+mod uninstall;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
 
-use add::Add;
+use install::Install;
 use list::List;
-use remove::Remove;
+use uninstall::Uninstall;
 
 #[derive(Subcommand)]
 pub enum Commands {
     /// Install a plugin
-    Add(Add),
-    /// List all installed plugins
+    #[command(aliases = ["i", "add"])]
+    Install(Install),
+    /// List installed plugins
     #[command(alias = "ls")]
     List(List),
     /// Uninstall a plugin
-    #[command(alias = "rm")]
-    Remove(Remove),
+    #[command(aliases = ["remove", "rm"])]
+    Uninstall(Uninstall),
 }
 
 #[derive(Parser)]
@@ -30,9 +31,9 @@ pub struct Plugin {
 impl Plugin {
     pub fn run(&self) -> Result<()> {
         match &self.command {
-            Commands::Add(add) => add.run(),
+            Commands::Install(install) => install.run(),
             Commands::List(list) => list.run(),
-            Commands::Remove(remove) => remove.run(),
+            Commands::Uninstall(uninstall) => uninstall.run(),
         }
     }
 }

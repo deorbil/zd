@@ -4,11 +4,12 @@ use clap::Parser;
 use crate::utils;
 
 #[derive(Parser)]
-pub struct Remove {
+pub struct Uninstall {
+    /// Name of the plugin to be uninstalled
     name: String,
 }
 
-impl Remove {
+impl Uninstall {
     pub fn run(&self) -> Result<()> {
         let dir = utils::env::get_plugin_dir(&self.name)?;
         std::fs::remove_dir_all(&dir)?;
