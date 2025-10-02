@@ -5,6 +5,7 @@ use crate::shell::Shell;
 
 #[derive(Parser)]
 pub struct Init {
+    /// Target shell
     shell: Shell,
 }
 

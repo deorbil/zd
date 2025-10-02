@@ -5,11 +5,12 @@ use git2::Repository;
 use crate::utils;
 
 #[derive(Parser)]
-pub struct Add {
+pub struct Install {
+    /// URL of the plugin to be installed
     url: String,
 }
 
-impl Add {
+impl Install {
     pub fn run(&self) -> Result<()> {
         let name = utils::git::get_name_from_url(&self.url);
         let url = utils::git::normalize_url(&self.url);

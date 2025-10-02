@@ -9,7 +9,7 @@ use plugin::Plugin;
 
 #[derive(Subcommand)]
 pub enum Commands {
-    /// Print shell script
+    /// Print the initialization script
     Init(Init),
     /// Manage plugins
     Plugin(Plugin),
