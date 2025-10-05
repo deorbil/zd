@@ -10,7 +10,7 @@ outline: deep
 zd init <SHELL>
 ```
 
-Print shell script.
+Print the initialization script.
 
 ::: warning
 
@@ -20,10 +20,10 @@ This command should be added to your shell configuration file (such as `~/.bashr
 
 ## `plugin`
 
-### `add`
+### `install`
 
 ```sh
-zd plugin add <NAME> <REPOSITORY>
+zd plugin install <URL>
 ```
 
 Install a plugin.
@@ -34,12 +34,12 @@ Install a plugin.
 zd plugin list
 ```
 
-List all installed plugins.
+List installed plugins.
 
 ### `remove`
 
 ```sh
-zd plugin remove <NAME>
+zd plugin uninstall <NAME>
 ```
 
 Uninstall a plugin.
