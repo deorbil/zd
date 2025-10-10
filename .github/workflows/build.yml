@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    branches: ["master"]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --release --locked --target x86_64-unknown-linux-gnu
+      - name: Archive
+        run: tar -czvf zd-x86_64-unknown-linux-gnu.tar.gz -C target/x86_64-unknown-linux-gnu/release zd
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zd-x86_64-unknown-linux-gnu
+          path: zd-x86_64-unknown-linux-gnu.tar.gz
