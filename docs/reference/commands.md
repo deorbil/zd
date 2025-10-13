@@ -43,3 +43,11 @@ zd plugin uninstall <NAME>
 ```
 
 Uninstall a plugin.
+
+### update
+
+```sh
+zd plugin update <NAME>
+```
+
+Update a plugin.
