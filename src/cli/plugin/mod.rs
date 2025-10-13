@@ -1,6 +1,7 @@
 mod install;
 mod list;
 mod uninstall;
+mod update;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -8,6 +9,7 @@ use clap::{Parser, Subcommand};
 use install::Install;
 use list::List;
 use uninstall::Uninstall;
+use update::Update;
 
 #[derive(Subcommand)]
 pub enum Commands {
@@ -20,6 +22,8 @@ pub enum Commands {
     /// Uninstall a plugin
     #[command(aliases = ["remove", "rm"])]
     Uninstall(Uninstall),
+    /// Update a plugin
+    Update(Update),
 }
 
 #[derive(Parser)]
@@ -34,6 +38,7 @@ impl Plugin {
             Commands::Install(install) => install.run(),
             Commands::List(list) => list.run(),
             Commands::Uninstall(uninstall) => uninstall.run(),
+            Commands::Update(update) => update.run(),
         }
     }
 }
