@@ -2,7 +2,7 @@
 
 ## Installation
 
-:::: details Building from Source
+:::: details Build from Source
 
 Install the following tools:
 
@@ -27,8 +27,26 @@ Move the executable to a directory in your `PATH` (such as `/usr/local/bin` or `
 
 ```sh
 sudo cp target/release/zd /usr/local/bin/
+# or
 cp target/release/zd ~/.local/bin/
 ```
+
+:::
+
+::::
+
+:::: details Download Prebuilt Binary
+
+Install the following dependencies:
+
+- [git](https://git-scm.com/)
+- [fzf](https://junegunn.github.io/fzf/)
+
+Download the binary from the [latest GitHub release](https://github.com/deorbil/zd/releases/latest) and then extract the archive.
+
+::: tip
+
+Move the executable to a directory in your `PATH` (such as `/usr/local/bin` or `~/.local/bin`).
 
 :::
 
