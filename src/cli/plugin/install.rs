@@ -1,6 +1,5 @@
 use anyhow::Result;
 use clap::Parser;
-use git2::Repository;
 
 use crate::utils;
 
@@ -12,11 +11,10 @@ pub struct Install {
 
 impl Install {
     pub fn run(&self) -> Result<()> {
-        let name = utils::url::get_name(&self.url);
         let url = utils::url::normalize(&self.url);
-        let dir = utils::path::get_plugin_dir(&name)?;
+        let dir = utils::path::get_plugins_dir()?;
         std::fs::create_dir_all(&dir)?;
-        Repository::clone(&url, &dir)?;
+        utils::git::clone(&url, &dir)?;
         Ok(())
     }
 }
