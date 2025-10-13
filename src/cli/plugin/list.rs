@@ -8,7 +8,7 @@ pub struct List;
 
 impl List {
     pub fn run(&self) -> Result<()> {
-        let dir = utils::env::get_plugins_dir()?;
+        let dir = utils::path::get_plugins_dir()?;
 
         let entries = std::fs::read_dir(&dir)?;
         for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {

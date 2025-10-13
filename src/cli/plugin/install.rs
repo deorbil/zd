@@ -12,9 +12,9 @@ pub struct Install {
 
 impl Install {
     pub fn run(&self) -> Result<()> {
-        let name = utils::git::get_name_from_url(&self.url);
-        let url = utils::git::normalize_url(&self.url);
-        let dir = utils::env::get_plugin_dir(&name)?;
+        let name = utils::url::get_name(&self.url);
+        let url = utils::url::normalize(&self.url);
+        let dir = utils::path::get_plugin_dir(&name)?;
         std::fs::create_dir_all(&dir)?;
         Repository::clone(&url, &dir)?;
         Ok(())
