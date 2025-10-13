@@ -6,11 +6,11 @@
 
 Install the following tools:
 
-- [git](https://git-scm.com/)
-- [rust](https://www.rust-lang.org/)
+- [cargo](https://www.rust-lang.org/)
 
 Install the following dependencies:
 
+- [git](https://git-scm.com/)
 - [fzf](https://junegunn.github.io/fzf/)
 
 This will clone the repository, build the project, and create an executable in the `target/release` directory.
