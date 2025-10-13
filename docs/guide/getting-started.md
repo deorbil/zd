@@ -212,7 +212,7 @@ chmod +x ~/.zdrc
 Install the [zd-cd](https://github.com/deorbil/zd-cd) plugin:
 
 ```sh
-zd plugin install https://github.com/deorbil/zd-cd.git
+zd plugin install deorbil/zd-cd
 ```
 
 Then reload your shell and run the following command:
