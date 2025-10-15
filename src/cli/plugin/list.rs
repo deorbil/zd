@@ -12,9 +12,7 @@ impl List {
 
         let entries = std::fs::read_dir(&dir)?;
         for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
-            if let Some(name) = entry.file_name().to_str() {
-                println!("{}", name);
-            }
+            println!("{}", entry.file_name().to_string_lossy());
         }
 
         Ok(())
