@@ -20,10 +20,18 @@ impl Update {
                 utils::git::pull(&dir.join(plugin))?;
             }
         } else {
-            let entries = std::fs::read_dir(&dir)?;
-            for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
-                println!("Updating {}...", entry.file_name().to_string_lossy());
-                utils::git::pull(&entry.path())?;
+            let mut entries = std::fs::read_dir(&dir)?
+                .flatten()
+                .filter(|entry| entry.path().is_dir())
+                .peekable();
+
+            if entries.peek().is_some() {
+                for entry in entries {
+                    println!("Updating {}...", entry.file_name().to_string_lossy());
+                    utils::git::pull(&entry.path())?;
+                }
+            } else {
+                println!("No installed plugins.");
             }
         }
 

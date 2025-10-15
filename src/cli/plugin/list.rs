@@ -11,9 +11,17 @@ impl List {
         let dir = utils::path::get_plugins_dir()?;
         std::fs::create_dir_all(&dir)?;
 
-        let entries = std::fs::read_dir(&dir)?;
-        for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
-            println!("{}", entry.file_name().to_string_lossy());
+        let mut entries = std::fs::read_dir(&dir)?
+            .flatten()
+            .filter(|entry| entry.path().is_dir())
+            .peekable();
+
+        if entries.peek().is_some() {
+            for entry in entries {
+                println!("{}", entry.file_name().to_string_lossy());
+            }
+        } else {
+            println!("No installed plugins.");
         }
 
         Ok(())
