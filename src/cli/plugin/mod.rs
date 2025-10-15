@@ -22,7 +22,7 @@ pub enum Commands {
     /// Uninstall a plugin
     #[command(aliases = ["remove", "rm"])]
     Uninstall(Uninstall),
-    /// Update a plugin
+    /// Update plugins
     #[command(alias = "upgrade")]
     Update(Update),
 }
