@@ -12,6 +12,8 @@ pub struct Update {
 impl Update {
     pub fn run(&self) -> Result<()> {
         let dir = utils::path::get_plugins_dir()?;
+        std::fs::create_dir_all(&dir)?;
+
         if let Some(plugins) = &self.plugins {
             for plugin in plugins {
                 println!("Updating {}...", plugin);
@@ -24,6 +26,7 @@ impl Update {
                 utils::git::pull(&entry.path())?;
             }
         }
+
         Ok(())
     }
 }
