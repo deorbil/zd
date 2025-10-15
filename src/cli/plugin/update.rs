@@ -19,11 +19,7 @@ impl Update {
                 utils::git::pull(&dir.join(plugin))?;
             }
         } else {
-            let mut entries = std::fs::read_dir(&dir)?
-                .flatten()
-                .filter(|entry| entry.path().is_dir())
-                .peekable();
-
+            let mut entries = utils::fs::get_dirs(&dir)?;
             if entries.peek().is_some() {
                 for entry in entries {
                     println!("Updating {}...", entry.file_name().to_string_lossy());
