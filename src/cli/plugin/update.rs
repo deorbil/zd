@@ -5,18 +5,19 @@ use crate::utils;
 
 #[derive(Parser)]
 pub struct Update {
-    /// Name of the plugin to be updated
-    name: Option<String>,
+    /// Plugins to be updated
+    plugins: Option<Vec<String>>,
 }
 
 impl Update {
     pub fn run(&self) -> Result<()> {
-        if let Some(name) = &self.name {
-            println!("Updating {}...", name);
-            let dir = utils::path::get_plugin_dir(name)?;
-            utils::git::pull(&dir)?;
+        let dir = utils::path::get_plugins_dir()?;
+        if let Some(plugins) = &self.plugins {
+            for plugin in plugins {
+                println!("Updating {}...", plugin);
+                utils::git::pull(&dir.join(plugin))?;
+            }
         } else {
-            let dir = utils::path::get_plugins_dir()?;
             let entries = std::fs::read_dir(&dir)?;
             for entry in entries.flatten().filter(|entry| entry.path().is_dir()) {
                 println!("Updating {}...", entry.file_name().to_string_lossy());

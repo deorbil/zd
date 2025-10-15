@@ -13,13 +13,13 @@ use update::Update;
 
 #[derive(Subcommand)]
 pub enum Commands {
-    /// Install a plugin
+    /// Install plugins
     #[command(aliases = ["i", "add"])]
     Install(Install),
     /// List installed plugins
     #[command(alias = "ls")]
     List(List),
-    /// Uninstall a plugin
+    /// Uninstall plugins
     #[command(aliases = ["remove", "rm"])]
     Uninstall(Uninstall),
     /// Update plugins

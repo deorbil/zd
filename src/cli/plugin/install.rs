@@ -5,17 +5,22 @@ use crate::utils;
 
 #[derive(Parser)]
 pub struct Install {
-    /// URL of the plugin to be installed
-    url: String,
+    /// Plugins to be installed
+    #[arg(required = true)]
+    plugins: Vec<String>,
 }
 
 impl Install {
     pub fn run(&self) -> Result<()> {
-        println!("Installing {}...", &self.url);
-        let url = utils::url::normalize(&self.url);
         let dir = utils::path::get_plugins_dir()?;
         std::fs::create_dir_all(&dir)?;
-        utils::git::clone(&url, &dir)?;
+
+        for plugin in &self.plugins {
+            println!("Installing {}...", plugin);
+            let url = utils::url::normalize(plugin);
+            utils::git::clone(&url, &dir)?;
+        }
+
         Ok(())
     }
 }

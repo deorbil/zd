@@ -12,7 +12,3 @@ pub fn get_zd_dir() -> Result<PathBuf> {
 pub fn get_plugins_dir() -> Result<PathBuf> {
     get_zd_dir().map(|dir| dir.join("plugins"))
 }
-
-pub fn get_plugin_dir(name: &str) -> Result<PathBuf> {
-    get_plugins_dir().map(|dir| dir.join(name))
-}
