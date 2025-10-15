@@ -14,9 +14,9 @@ where
 }
 
 pub fn clone(url: &str, path: &Path) -> Result<()> {
-    run(|git| git.current_dir(path).args(["clone", url]))
+    run(|git| git.current_dir(path).args(["clone", "--quiet", url]))
 }
 
 pub fn pull(path: &Path) -> Result<()> {
-    run(|git| git.current_dir(path).args(["pull", "--ff-only"]))
+    run(|git| git.current_dir(path).args(["pull", "--ff-only", "--quiet"]))
 }

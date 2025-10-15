@@ -11,6 +11,7 @@ pub struct Uninstall {
 
 impl Uninstall {
     pub fn run(&self) -> Result<()> {
+        println!("Uninstalling {}...", &self.name);
         let dir = utils::path::get_plugin_dir(&self.name)?;
         std::fs::remove_dir_all(&dir)?;
         Ok(())

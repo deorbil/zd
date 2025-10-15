@@ -11,6 +11,7 @@ pub struct Install {
 
 impl Install {
     pub fn run(&self) -> Result<()> {
+        println!("Installing {}...", &self.url);
         let url = utils::url::normalize(&self.url);
         let dir = utils::path::get_plugins_dir()?;
         std::fs::create_dir_all(&dir)?;

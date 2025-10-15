@@ -11,6 +11,7 @@ pub struct Update {
 
 impl Update {
     pub fn run(&self) -> Result<()> {
+        println!("Updating {}...", &self.name);
         let dir = utils::path::get_plugin_dir(&self.name)?;
         utils::git::pull(&dir)?;
         Ok(())
