@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use anyhow::{Error, Result};
+use anyhow::Result;
 
 pub fn create_plugins_dir() -> Result<PathBuf> {
     let dir = get_plugins_dir()?;
@@ -8,13 +8,17 @@ pub fn create_plugins_dir() -> Result<PathBuf> {
     Ok(dir)
 }
 
+pub fn get_home_dir() -> Result<PathBuf> {
+    Ok(std::env::var("HOME").map(PathBuf::from)?)
+}
+
 pub fn get_zd_dir() -> Result<PathBuf> {
-    std::env::var("ZD_DIR")
-        .map(PathBuf::from)
-        .or_else(|_| std::env::var("HOME").map(|dir| PathBuf::from(dir).join(".zd")))
-        .map_err(Error::from)
+    Ok(match std::env::var("ZD_DIR").map(PathBuf::from) {
+        Ok(dir) => dir,
+        Err(_) => get_home_dir()?.join(".zd"),
+    })
 }
 
 pub fn get_plugins_dir() -> Result<PathBuf> {
-    get_zd_dir().map(|dir| dir.join("plugins"))
+    Ok(get_zd_dir()?.join("plugins"))
 }
