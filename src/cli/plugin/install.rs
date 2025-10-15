@@ -12,8 +12,7 @@ pub struct Install {
 
 impl Install {
     pub fn run(&self) -> Result<()> {
-        let dir = utils::path::get_plugins_dir()?;
-        std::fs::create_dir_all(&dir)?;
+        let dir = utils::path::create_plugins_dir()?;
 
         for plugin in &self.plugins {
             println!("Installing {}...", plugin);

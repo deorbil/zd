@@ -11,8 +11,7 @@ pub struct Update {
 
 impl Update {
     pub fn run(&self) -> Result<()> {
-        let dir = utils::path::get_plugins_dir()?;
-        std::fs::create_dir_all(&dir)?;
+        let dir = utils::path::create_plugins_dir()?;
 
         if let Some(plugins) = &self.plugins {
             for plugin in plugins {
