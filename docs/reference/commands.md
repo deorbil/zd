@@ -23,10 +23,10 @@ This command should be added to your shell configuration file (such as `~/.bashr
 ### `install`
 
 ```sh
-zd plugin install <URL>
+zd plugin install <PLUGINS>...
 ```
 
-Install a plugin.
+Install plugins.
 
 ### `list`
 
@@ -36,18 +36,20 @@ zd plugin list
 
 List installed plugins.
 
-### `remove`
+### `uninstall`
 
 ```sh
-zd plugin uninstall <NAME>
+zd plugin uninstall <PLUGINS>...
 ```
 
-Uninstall a plugin.
+Uninstall plugins.
 
 ### update
 
 ```sh
-zd plugin update <NAME>
+zd plugin update [PLUGINS]...
 ```
 
-Update a plugin.
+Update plugins.
+
+If no plugins are specified, all plugins will be updated.
