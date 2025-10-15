@@ -28,6 +28,8 @@ zd plugin install <PLUGINS>...
 
 Install plugins.
 
+Aliases: `i`, `add`
+
 ### `list`
 
 ```sh
@@ -36,6 +38,8 @@ zd plugin list
 
 List installed plugins.
 
+Aliases: `ls`
+
 ### `uninstall`
 
 ```sh
@@ -43,6 +47,8 @@ zd plugin uninstall <PLUGINS>...
 ```
 
 Uninstall plugins.
+
+Aliases: `remove`, `rm`
 
 ### update
 
@@ -53,3 +59,5 @@ zd plugin update [PLUGINS]...
 Update plugins.
 
 If no plugins are specified, all plugins will be updated.
+
+Aliases: `upgrade`
