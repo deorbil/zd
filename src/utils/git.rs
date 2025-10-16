@@ -3,20 +3,18 @@ use std::process::Command;
 
 use anyhow::Result;
 
-pub fn run<F>(f: F) -> Result<()>
-where
-    F: FnOnce(&mut Command) -> &mut Command,
-{
-    let mut git = Command::new("git");
-    f(&mut git);
-    git.status()?;
+pub fn clone(dir: &Path, url: &str) -> Result<()> {
+    Command::new("git")
+        .current_dir(dir)
+        .args(["clone", "--quiet", url])
+        .status()?;
     Ok(())
 }
 
-pub fn clone(url: &str, path: &Path) -> Result<()> {
-    run(|git| git.current_dir(path).args(["clone", "--quiet", url]))
-}
-
-pub fn pull(path: &Path) -> Result<()> {
-    run(|git| git.current_dir(path).args(["pull", "--ff-only", "--quiet"]))
+pub fn pull(dir: &Path) -> Result<()> {
+    Command::new("git")
+        .current_dir(dir)
+        .args(["pull", "--ff-only", "--quiet"])
+        .status()?;
+    Ok(())
 }
