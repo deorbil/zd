@@ -19,8 +19,8 @@ impl Update {
                 utils::git::pull(&dir.join(plugin))?;
             }
         } else {
-            let mut entries = utils::fs::get_dirs(&dir)?;
-            if entries.peek().is_some() {
+            let entries = utils::fs::get_dirs(&dir)?;
+            if !entries.is_empty() {
                 for entry in entries {
                     println!("Updating {}...", entry.file_name().to_string_lossy());
                     utils::git::pull(&entry.path())?;
