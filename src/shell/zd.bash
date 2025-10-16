@@ -21,19 +21,21 @@ __zd() {
 
 __zd_plugin_load() {
   local dir="$1"
-  [[ -d "$dir" ]] || return
-
-  local name="${dir##*/}"
-  [[ -f "$dir/$name.bash" ]] && source "$dir/$name.bash"
+  if [[ -d "$dir" ]]; then
+    local name="${dir##*/}"
+    if [[ -f "$dir/$name.bash" ]]; then
+      source "$dir/$name.bash"
+    fi
+  fi
 }
 
 __zd_plugin_load_all() {
   local dir="${ZD_DIR:-$HOME/.zd}/plugins"
-  [[ -d "$dir" ]] || return
-
-  for plugin in "$dir"/*; do
-    __zd_plugin_load "$plugin"
-  done
+  if [[ -d "$dir" ]]; then
+    for plugin in "$dir"/*; do
+      __zd_plugin_load "$plugin"
+    done
+  fi
 }
 
 __zd_plugin_load_all

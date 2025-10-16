@@ -21,10 +21,12 @@ __zd() {
 
 __zd_plugin_load() {
   local dir="$1"
-  [[ -d "$dir" ]] || return
-
-  local name="${dir##*/}"
-  [[ -f "$dir/$name.zsh" ]] && source "$dir/$name.zsh"
+  if [[ -d "$dir" ]]; then
+    local name="${dir##*/}"
+    if [[ -f "$dir/$name.zsh" ]]; then
+      source "$dir/$name.zsh"
+    fi
+  fi
 }
 
 __zd_plugin_load_all() {
