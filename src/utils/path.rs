@@ -9,12 +9,12 @@ pub fn create_plugins_dir() -> Result<PathBuf> {
 }
 
 pub fn get_home_dir() -> Result<PathBuf> {
-    Ok(std::env::var("HOME").map(PathBuf::from)?)
+    Ok(PathBuf::from(std::env::var("HOME")?))
 }
 
 pub fn get_zd_dir() -> Result<PathBuf> {
-    Ok(match std::env::var("ZD_DIR").map(PathBuf::from) {
-        Ok(dir) => dir,
+    Ok(match std::env::var("ZD_DIR") {
+        Ok(dir) => PathBuf::from(dir),
         Err(_) => get_home_dir()?.join(".zd"),
     })
 }
