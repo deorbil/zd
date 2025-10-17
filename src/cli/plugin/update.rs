@@ -16,14 +16,14 @@ impl Update {
         if let Some(plugins) = &self.plugins {
             for plugin in plugins {
                 println!("Updating {}...", plugin);
-                utils::git::pull(&dir.join(plugin))?;
+                utils::git::pull(dir.join(plugin))?;
             }
         } else {
             let entries = utils::fs::get_dirs(&dir)?;
             if !entries.is_empty() {
                 for entry in entries {
                     println!("Updating {}...", entry.file_name().to_string_lossy());
-                    utils::git::pull(&entry.path())?;
+                    utils::git::pull(entry.path())?;
                 }
             } else {
                 println!("No installed plugins.");

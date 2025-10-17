@@ -1,4 +1,8 @@
-pub fn normalize(url: &str) -> String {
+pub fn normalize<S>(url: S) -> String
+where
+    S: AsRef<str>,
+{
+    let url = url.as_ref();
     if url.contains(':') {
         url.to_string()
     } else {
