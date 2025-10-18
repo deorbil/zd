@@ -3,14 +3,14 @@ use std::process::Command;
 
 use anyhow::Result;
 
-pub fn clone<P, S>(dir: P, url: S) -> Result<()>
+pub fn clone<P, S>(dir: P, url: S, name: S) -> Result<()>
 where
     P: AsRef<Path>,
     S: AsRef<str>,
 {
     Command::new("git")
         .current_dir(dir)
-        .args(["clone", "--quiet", url.as_ref()])
+        .args(["clone", "--quiet", url.as_ref(), name.as_ref()])
         .status()?;
     Ok(())
 }

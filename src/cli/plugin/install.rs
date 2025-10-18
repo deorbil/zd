@@ -15,9 +15,10 @@ impl Install {
         let dir = utils::path::create_plugins_dir()?;
 
         for plugin in &self.plugins {
-            println!("Installing {}...", plugin);
+            let name = utils::url::get_name(plugin);
             let url = utils::url::normalize(plugin);
-            utils::git::clone(&dir, &url)?;
+            println!("Installing {}...", name);
+            utils::git::clone(&dir, &url, &name)?;
         }
 
         Ok(())
